@@ -8,7 +8,9 @@ import { MediaGrid } from "@/components/media-grid";
 const tickerItems = [fighter.record, "World champion", "The fearless", "Myanmar", "All pressure"];
 
 export default function Home() {
+  const structuredData = { "@context": "https://schema.org", "@type": "Person", name: fighter.name, alternateName: fighter.nickname, birthPlace: { "@type": "Place", name: fighter.origin }, homeLocation: { "@type": "Place", name: fighter.base }, jobTitle: "Professional mixed martial artist", url: "https://thefearlessvan.com" };
   return <main id="content">
+    <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData).replace(/</g, "\\u003c") }} />
     <SiteHeader />
     <section className="hero" aria-labelledby="hero-title">
       <div className="hero-grid" aria-hidden="true" /><div className="hero-orbit hero-orbit-one" aria-hidden="true" /><div className="hero-orbit hero-orbit-two" aria-hidden="true" />
