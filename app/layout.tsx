@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Archivo_Black, Space_Grotesk } from "next/font/google";
 import "./globals.css";
+import { Spotlight } from "@/components/spotlight";
 
 const display = Archivo_Black({ subsets: ["latin"], variable: "--font-display", weight: "400" });
 const body = Space_Grotesk({ subsets: ["latin"], variable: "--font-body" });
@@ -15,5 +16,5 @@ export const metadata: Metadata = {
 export const viewport: Viewport = { themeColor: "#080808", colorScheme: "dark" };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  return <html lang="en" className={`${display.variable} ${body.variable}`}><body>{children}</body></html>;
+  return <html lang="en" className={`${display.variable} ${body.variable}`}><body><a className="skip-link" href="#content">Skip to content</a><Spotlight />{children}</body></html>;
 }

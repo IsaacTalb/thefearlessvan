@@ -2,11 +2,13 @@ import { fighter } from "./data";
 import { ArrowDown, ArrowUpRight } from "@/components/icons";
 import { Reveal } from "@/components/reveal";
 import { SiteHeader } from "@/components/site-header";
+import { SiteFooter } from "@/components/site-footer";
+import { MediaGrid } from "@/components/media-grid";
 
 const tickerItems = [fighter.record, "World champion", "The fearless", "Myanmar", "All pressure"];
 
 export default function Home() {
-  return <main id="top">
+  return <main id="content">
     <SiteHeader />
     <section className="hero" aria-labelledby="hero-title">
       <div className="hero-grid" aria-hidden="true" /><div className="hero-orbit hero-orbit-one" aria-hidden="true" /><div className="hero-orbit hero-orbit-two" aria-hidden="true" />
@@ -24,7 +26,7 @@ export default function Home() {
     <section className="manifesto section-shell" id="story"><Reveal>
       <div className="section-label"><span>01</span> The mindset</div>
       <p className="manifesto-copy">Pressure doesn&apos;t<br />break him. <em>It builds him.</em></p>
-      <div className="manifesto-footer"><p>Born in Hakha. Forged in Houston. Joshua Van carries a nation with him every time the cage closes.</p><a href="#journey" className="text-link">Discover the story <ArrowUpRight /></a></div>
+      <div className="manifesto-footer"><p>Born in Hakha. Forged in Houston. Joshua Van carries a nation with him every time the cage closes.</p><a href="/story" className="text-link">Discover the story <ArrowUpRight /></a></div>
     </Reveal></section>
 
     <section className="stats" aria-label="Career statistics">{fighter.stats.map((stat, i) => <Reveal className="stat" key={stat.label}>
@@ -43,18 +45,18 @@ export default function Home() {
       <Reveal className="fight-card">
         <div className="fight-meta"><span>Latest chapter</span><span>World title · 125 lb</span></div>
         <div className="fight-versus"><div><small>The fearless</small><strong>Van</strong></div><span className="vs">VS</span><div className="opponent"><small>Next challenger</small><strong>TBA</strong></div></div>
-        <div className="fight-footer"><span className="live-pill"><i /> Awaiting announcement</span><a href="#contact">Get fight alerts <ArrowUpRight /></a></div>
+        <div className="fight-footer"><span className="live-pill"><i /> Awaiting announcement</span><a href="/fights">View fight history <ArrowUpRight /></a></div>
       </Reveal>
     </section>
 
     <section className="media-section" id="media">
       <div className="media-panel media-panel-left"><span>Training</span><strong>Built in<br />the dark.</strong></div><div className="media-monogram" aria-hidden="true">JV</div><div className="media-panel media-panel-right"><span>Fight night</span><strong>Seen by<br />the world.</strong></div>
     </section>
+    <section className="home-gallery section-shell"><Reveal><div className="section-label"><span>04</span> Off the canvas</div><h2>Inside<br /><i>the work.</i></h2></Reveal><MediaGrid compact /><a className="text-link gallery-link" href="/media">Explore all media <ArrowUpRight /></a></section>
 
     <section className="partners section-shell" id="partners"><Reveal>
-      <div className="section-label"><span>04</span> Partners</div><h2>Build with<br /><i>the champion.</i></h2><p>For brand partnerships, press, sponsorships, and professional enquiries.</p><a className="button-link" href="mailto:team@thefearlessvan.com">Partner with Joshua <ArrowUpRight /></a>
+      <div className="section-label"><span>05</span> Partners</div><h2>Build with<br /><i>the champion.</i></h2><p>For brand partnerships, press, sponsorships, and professional enquiries.</p><a className="button-link" href="/partners">Partner with Joshua <ArrowUpRight /></a>
     </Reveal></section>
-
-    <footer id="contact"><div className="footer-title">Fear<br /><span>less.</span></div><div className="footer-bottom"><a className="monogram footer-logo" href="#top"><span>J</span><span>V</span></a><p>© {new Date().getFullYear()} Joshua Van. All rights reserved.</p><div><a href="#">Instagram</a><a href="#">YouTube</a><a href="#">X / Twitter</a></div></div></footer>
+    <SiteFooter />
   </main>;
 }
